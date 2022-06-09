@@ -1,0 +1,3 @@
+#!/bin/bash
+DIRNAME=$(dirname $(realpath $0))
+$DIRNAME/showfn.sh | xargs -I {} printf "break {}\ncommand\nsilent\nbacktrace 1\ncontinue\nend\n\n"
