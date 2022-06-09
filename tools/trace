@@ -1,3 +1,5 @@
 #!/bin/bash
 DIRNAME=$(dirname $(realpath $0))
+printf "set height 0\nset logging on\nset logging redirect on\n\n"
+
 $DIRNAME/showfn.sh | xargs -I {} printf "break {}\ncommand\nsilent\nbacktrace 1\ncontinue\nend\n\n"
