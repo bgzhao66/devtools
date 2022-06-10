@@ -15,5 +15,6 @@ trace | tee gdb.cmds
 ```sh
 cd path/to/build
 gdb bin/demo -x ../path/to/src/gdb.cmds -x ../another/../gdb.cmds
+gdb> run
 ```
 3. the call traces are logged to `gdb.txt` too.
