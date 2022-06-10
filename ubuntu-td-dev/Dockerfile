@@ -8,7 +8,11 @@ RUN apt-get install -y psmisc sysstat net-tools lsof iputils-ping strace gdb val
 RUN apt-get install -y vim man-db
 RUN yes | unminimize
 
-WORKDIR /root
-COPY . /root
 RUN apt-get install -y python3 python3-pip
+RUN apt-get install -y sudo
+
+WORKDIR /root
+COPY ./requirements.txt /root
 RUN pip3 install -r ./requirements.txt
+
+RUN apt-get install -y tmux
