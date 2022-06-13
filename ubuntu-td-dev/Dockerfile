@@ -15,4 +15,4 @@ WORKDIR /root
 COPY ./requirements.txt /root
 RUN pip3 install -r ./requirements.txt
 
-RUN apt-get install -y tmux
+RUN apt-get install -y tmux ctags cscope
