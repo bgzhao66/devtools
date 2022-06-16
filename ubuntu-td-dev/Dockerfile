@@ -16,3 +16,10 @@ COPY ./requirements.txt /root
 RUN pip3 install -r ./requirements.txt
 
 RUN apt-get install -y tmux ctags cscope
+RUN apt-get install -y curl wget
+
+RUN wget --continue https://golang.google.cn/dl/go1.18.3.linux-amd64.tar.gz && tar -xvf go1.18.3.linux-amd64.tar.gz -C /usr/local && rm -f go*.linux-amd64.tar.gz
+ENV GO111MODULE=on
+ENV GOPROXY=https://goproxy.cn
+ENV PATH=/usr/local/go/bin:$PATH
+
