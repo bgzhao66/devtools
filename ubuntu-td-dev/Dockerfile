@@ -20,6 +20,10 @@ RUN apt-get install -y curl wget
 
 RUN wget --continue https://golang.google.cn/dl/go1.18.3.linux-amd64.tar.gz && tar -xvf go1.18.3.linux-amd64.tar.gz -C /usr/local && rm -f go*.linux-amd64.tar.gz
 ENV GO111MODULE=on
-ENV GOPROXY=https://goproxy.cn
+ENV GOPROXY=https://goproxy.cn,direct
 ENV PATH=/usr/local/go/bin:$PATH
 
+RUN apt-get install -y locales locales-all
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
