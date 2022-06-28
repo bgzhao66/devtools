@@ -1,10 +1,9 @@
-COVERITY_PATH=$HOME/Downloads/Coverity/cov-analysis-linux64-2021.12.1
-DEV_TOOLS=$HOME/github/devtools/tools
 docker run -it --rm -v $PWD:$PWD \
-		-v $HOME/.ssh:/root/.ssh \
-		-v $HOME/.gitconfig:/root/.gitconfig \
-		-v $COVERITY_PATH:/opt/coverityscan \
-		-v $DEV_TOOLS:/devtools/bin \
-		-w $PWD \
-		ubuntu-td-dev:20.04 $@
-
+        -v $HOME:/root \
+        -w $PWD \
+        -v $HOME/.varlog:/var/log \
+        -v $HOME/.varlib:/var/lib \
+        --cap-add=SYS_PTRACE \
+        --security-opt seccomp=unconfined \
+        -h dev.local \
+        ubuntu-td-dev:20.04 $@
