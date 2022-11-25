@@ -1,0 +1,17 @@
+docker volume create --driver local \
+    --opt type=tmpfs \
+    --opt device=tmpfs \
+    --opt o=size=100m,uid=1000 \
+    myvol2
+
+docker run -d \
+  --name devtest \
+  -v myvol2:/app \
+  nginx:latest
+
+dd if=/dev/zero of=/testfile bs=1M count=1024
+
+docker volume list
+docker volume inspect myvol2
+docker volume rm myvol2
+
