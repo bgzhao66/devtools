@@ -27,3 +27,14 @@ RUN apt-get install -y locales locales-all
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
+RUN pip3 install toml
+RUN apt-get install -y xsltproc libavro-dev libjemalloc-dev
+RUN apt-get update
+RUN apt-get install -y rsync
+RUN apt-get install -y iotop iftop
+RUN apt-get install -y libgtest-dev
+
+RUN apt-get update
+RUN apt-get install -y tshark
+RUN apt-get install -y iproute2
+
