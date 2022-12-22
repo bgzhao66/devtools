@@ -37,4 +37,7 @@ RUN apt-get install -y libgtest-dev
 RUN apt-get update
 RUN apt-get install -y tshark
 RUN apt-get install -y iproute2
+RUN pip3 uninstall -y taospy
+RUN pip3 install taospy requests pexpect
 
+RUN apt-get install -y unzip zip
