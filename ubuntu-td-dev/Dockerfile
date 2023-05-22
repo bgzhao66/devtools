@@ -41,3 +41,5 @@ RUN pip3 uninstall -y taospy
 RUN pip3 install taospy requests pexpect
 
 RUN apt-get install -y unzip zip
+RUN pip3 install tzlocal distro
+RUN apt-get install -y libgflags-dev
